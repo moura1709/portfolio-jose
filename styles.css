@@ -1,0 +1,163 @@
+*{
+    margin: 0;  
+    padding: 0; 
+    box-sizing: border-box; /*Garante que bordas não aumentem o tamanho dos elementos */
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #e20808;
+}
+
+/* Estilizar a barra de navegação */
+.navbar
+{
+    background-color: #080808;
+    color: #f3efef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    box-shadow: 0 2px 5px rgba(21, 21, 20, 0.97);
+}
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0; /*remove as margens da lista */
+    padding: 0; /*remove o preenchimento interno */
+}
+
+.navbar ul li a{
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 5px;
+    transition: 0.4s; 
+}
+.navbar ul li a:hover{
+    background-color: white; 
+    color: #fff477; /* adiciona uma cor diferente ao texto*/
+    box-shadow: 0px 4px 10pxr rgba(10, 10, 10, 0.97);
+    /*0px -> move na horizontal
+    4px -> move na vertical
+    10px -> desfoque de 10px na sombra
+    rgba(0,0,0,0.3) adiciona a cor preta e uma transparência 
+        de 30%(0.3)
+    */
+    transform: translateY(-2px); /*move a box 2px para cima */
+}
+/*
+0px -> deslocamento horizontal
+4px deslocamento vertical - a sombra desce
+10px ->o quão "esfumado" a sombra fica
+rgba muda para cor preta e uma transparencia de 30%
+*/
+
+.slider {
+    margin: 20px auto; /* CENTRALIZA NA TELA E DÁ MARGEM AO TOPO */
+    width: 800px; /*LARGURA FIXA DO CARROSSEL */
+    height: 400px; /* ALTURA FIXA DO CARROSSEL */
+    overflow: hidden; /*ESCONDE O QUE TIVER FORA DA CAIXA (AS OUTRAS FOTOS) */
+    border-radius: 10px; /*ARREDONDAR OS CANTOS DA IMAGEM */
+    box-shadow: 0 10px 20px rgba(15, 15, 14, 0.707); /*SOMBRA PRA DAR PROFUDINDADE */
+}
+.slider-content
+{
+    width: 400%; /*MANTEM 400% POIS TEMOS 4 IMAGENS */
+    height: 100%; /*OCUPA 100% DO OBJETO "PAI"(SLIDER) */
+    display: flex; /*IMAGENS LADO A LADO */
+}
+.slider-content input
+{
+    display: none; /*OCULTA OS BOTÕES (RADIO) ORIGINAIS */
+}
+.slide-box
+{
+    width: 25%; /*CADA FOTO UTILIZA 25% DO TOTAL DE 100% */
+    transition: 0.6s; /* TEMPO DE ANIMAÇÃO DE TRANSIÇÃO ENTRE CADA IMAGEM */
+}
+.slide-box img 
+{
+    width: 800px; /*OCUPA 100% DO TAMANHO DO SLIDER */
+    height: 400px; /* OCUPA 100% DO TAMANHO DO SLIDER */
+    object-fit: cover; /* corta a imagem para preencher o espaço sem achatar */
+}
+
+/* LÓGICA DO MOVIMENTO DAS IMAGENS: */
+/* 1º IMAGEM: Margen 0 */
+#radio1:checked ~ .first { margin-left: 0; }
+
+/* 2º IMAGEM: Margen 25% */
+#radio2:checked ~ .first { margin-left: -25%; }
+/* 3º IMAGEM: Margen 50% */
+#radio3:checked ~ .first { margin-left: -50%; }
+
+/* 4º IMAGEM: Margen 75% */
+#radio4:checked ~ .first { margin-left: -75%; }
+
+/* Estilo dos botões manuais */
+.nav-manual {
+    position: absolute; /*posicionamento fixo em relação ao slider */
+    width: 800px; /* Mesma da largura do slider */
+    margin-top: -40px; /* Joga os botões para dentro das imagens */
+    display: flex; /*Alinhada em linha */
+    justify-content: center;
+}
+.manual-btn {
+    border: 2px solid white;
+    padding: 5px; /*tamanho do botão */
+    border-radius: 10px; 
+    cursor: pointer;
+    margin-left: 10px; /*Distância entre as bolinhas */
+    transition: 0.3s; 
+ }
+ .manual-btn:hover{
+    background-color:white /*muda a cor (por completo) quando clicar */
+ }
+
+ .rodape-principal 
+ {
+    background-color:#090909;
+    color: white;
+    padding: 40px 0 20px 0;
+    margin-top: 50px;
+ }
+ .contrainer-rodape 
+ {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap; /*faz os itens pularem de linha em tela pequena */
+    max-width: 1200px;
+    margin: 0 auto;
+ }
+ .info-copyrigth p {
+    margin-bottom: 5px;
+    font-size: 14px;
+    opacity: 0.8;
+ }
+ .links-sociais a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: 0.3s;
+ }
+ .links-sociais a:hover {
+    color:blueviolet;
+    text-shadow: 0 0 5px rgba(8, 8, 8, 0.97);
+ }
+.rodape-inferior
+{
+    text-align: center;
+    border-top: 1px solid(255, 255, 255, 0.1);
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 12px;
+    opacity: 0.6;
+}
